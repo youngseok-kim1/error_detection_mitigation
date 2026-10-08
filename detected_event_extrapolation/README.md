@@ -1,6 +1,6 @@
 # Detected-event extrapolation: exact toy study
 
-**The compiled write-up is `REPORT.md`** (theory, both tests, figures, full code listing). It is rebuilt with `python build_report.py` from `report_template.md`. This README only describes the scripts. The theory of detection-driven extrapolation (fixed vs twirled checks, the mixture law, stratification) is in `theory/THEORY.md` with its own scripts in `theory/`; `theory/reactivity_connection.md` relates it to arXiv:2609.31934 (reactivity functions). The three-stage numerical test (ZNE vs fixed checks vs twirled checks on a deep TFIM circuit) is `demo/DEMO.md`.
+**The compiled write-up is `REPORT.md`** (theory, both tests, figures, full code listing). It is rebuilt with `python build_report.py` from `report_template.md`. This README only describes the scripts. The theory of detection-driven extrapolation (fixed vs twirled checks, the mixture law, stratification) is in `theory/THEORY.md` with its own scripts in `theory/`; `theory/reactivity_connection.md` relates it to arXiv:2609.31934 (reactivity functions). The three-stage numerical test (ZNE vs fixed checks vs twirled checks on a deep TFIM circuit) is `demo/DEMO.md`. The hardware-native follow-up (6-ring TFIM on one heavy-hex plaquette with mediator and peripheral checks, p = 0.5–0.3%, detection-based protocols vs ZNE) is `heavyhex/HEAVYHEX.md`.
 
 Exploration for the question: can detected events drive a ZNE-type mitigation of the logical
 error left after post-selection (setting of arXiv:2609.13108)?
