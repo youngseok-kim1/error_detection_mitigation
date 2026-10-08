@@ -1,0 +1,13 @@
+\documentclass[border=6pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{quantikz}
+\usepackage{amsmath}
+\begin{document}
+\begin{quantikz}[row sep={0.62cm,between origins},column sep=0.28cm]
+\lstick{$q_0$} & \gate{R_x} & \ctrl{1} & \qw & \ctrl{1} & \qw & \qw & \qw & \qw & \qw & \qw & \targ{} & \gate{R_z} & \targ{} & \qw \\
+\lstick{$q_1$} & \gate{R_x} & \targ{} & \gate{R_z} & \targ{} & \ctrl{1} & \qw & \ctrl{1} & \qw & \qw & \qw & \qw & \qw & \qw & \qw \\
+\lstick{$q_2$} & \gate{R_x} & \ctrl{1} & \qw & \ctrl{1} & \targ{} & \gate{R_z} & \targ{} & \qw & \qw & \qw & \qw & \qw & \qw & \qw \\
+\lstick{$q_3$} & \gate{R_x} & \targ{} & \gate{R_z} & \targ{} & \qw & \qw & \qw & \ctrl{1} & \qw & \ctrl{1} & \qw & \qw & \qw & \qw \\
+\lstick{$q_4$} & \gate{R_x} & \qw & \qw & \qw & \qw & \qw & \qw & \targ{} & \gate{R_z} & \targ{} & \ctrl{-4} & \qw & \ctrl{-4} & \qw
+\end{quantikz}
+\end{document}

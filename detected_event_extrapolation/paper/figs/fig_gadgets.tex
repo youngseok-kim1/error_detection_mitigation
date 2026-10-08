@@ -1,0 +1,52 @@
+\documentclass[border=6pt,varwidth=60cm]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{quantikz}
+\usepackage{amsmath}
+\begin{document}
+\noindent
+\textbf{(a) One Trotter step of the payload} ($n=5$ ring; bonds ordered even, odd, closing; $\exp(-i\frac\phi2 Z_jZ_k)=CX_{jk}\,R_z^{(k)}(\phi)\,CX_{jk}$; 10 noisy CX per step)\par\vspace{2pt}\noindent\begin{quantikz}[row sep={0.62cm,between origins},column sep=0.28cm]
+\lstick{$q_0$} & \gate{R_x} & \ctrl{1} & \qw & \ctrl{1} & \qw & \qw & \qw & \qw & \qw & \qw & \targ{} & \gate{R_z} & \targ{} & \qw \\
+\lstick{$q_1$} & \gate{R_x} & \targ{} & \gate{R_z} & \targ{} & \ctrl{1} & \qw & \ctrl{1} & \qw & \qw & \qw & \qw & \qw & \qw & \qw \\
+\lstick{$q_2$} & \gate{R_x} & \ctrl{1} & \qw & \ctrl{1} & \targ{} & \gate{R_z} & \targ{} & \qw & \qw & \qw & \qw & \qw & \qw & \qw \\
+\lstick{$q_3$} & \gate{R_x} & \targ{} & \gate{R_z} & \targ{} & \qw & \qw & \qw & \ctrl{1} & \qw & \ctrl{1} & \qw & \qw & \qw & \qw \\
+\lstick{$q_4$} & \gate{R_x} & \qw & \qw & \qw & \qw & \qw & \qw & \targ{} & \gate{R_z} & \targ{} & \ctrl{-4} & \qw & \ctrl{-4} & \qw
+\end{quantikz}\par\vspace{10pt}\noindent
+\textbf{(b) Constrained twirled check (Stage 3, 3b)}: $P_L$ drawn per shot, $\tfrac12$ a Z-string on a random subset, $\tfrac12$ a string with $X$ or $Y$ on every qubit; $P_R=P_L$; no repair.\par
+\quad Left: generic form. Middle: $P_L=Z_0Z_2$ (2+2 controlled-Paulis). Right: $P_L=X_0Y_1X_2X_3Y_4$ (5+5). Average over the twirl: 7.5 noisy gadget gates per step.\par\vspace{2pt}\noindent\begin{quantikz}[row sep={0.62cm,between origins},column sep=0.3cm]
+\lstick{anc} & \gate{H} & \ctrl{1} & \qw & \ctrl{1} & \gate{H} & \meter{} \\
+\lstick{$q_0$} & \qw & \gate[5]{P_L} & \gate[5,style={fill=blue!8}]{\text{ZZ layer}} & \gate[5]{P_L} & \qw & \qw \\
+\lstick{$q_1$} & \qw & & & & \qw & \qw \\
+\lstick{$q_2$} & \qw & & & & \qw & \qw \\
+\lstick{$q_3$} & \qw & & & & \qw & \qw \\
+\lstick{$q_4$} & \qw & & & & \qw & \qw
+\end{quantikz}
+\qquad
+\begin{quantikz}[row sep={0.62cm,between origins},column sep=0.3cm]
+\lstick{anc} & \gate{H} & \ctrl{1} & \ctrl{3} & \qw & \ctrl{1} & \ctrl{3} & \gate{H} & \meter{} \\
+\lstick{$q_0$} & \qw & \control{} & \qw & \gate[5,style={fill=blue!8}]{\text{ZZ layer}} & \control{} & \qw & \qw & \qw \\
+\lstick{$q_1$} & \qw & \qw & \qw & & \qw & \qw & \qw & \qw \\
+\lstick{$q_2$} & \qw & \qw & \control{} & & \qw & \control{} & \qw & \qw \\
+\lstick{$q_3$} & \qw & \qw & \qw & & \qw & \qw & \qw & \qw \\
+\lstick{$q_4$} & \qw & \qw & \qw & & \qw & \qw & \qw & \qw
+\end{quantikz}
+\qquad
+\begin{quantikz}[row sep={0.62cm,between origins},column sep=0.22cm]
+\lstick{anc} & \gate{H} & \ctrl{1} & \ctrl{2} & \ctrl{3} & \ctrl{4} & \ctrl{5} & \qw & \ctrl{1} & \ctrl{2} & \ctrl{3} & \ctrl{4} & \ctrl{5} & \gate{H} & \meter{} \\
+\lstick{$q_0$} & \qw & \targ{} & \qw & \qw & \qw & \qw & \gate[5,style={fill=blue!8}]{\text{ZZ layer}} & \targ{} & \qw & \qw & \qw & \qw & \qw & \qw \\
+\lstick{$q_1$} & \qw & \qw & \gate{Y} & \qw & \qw & \qw & & \qw & \gate{Y} & \qw & \qw & \qw & \qw & \qw \\
+\lstick{$q_2$} & \qw & \qw & \qw & \targ{} & \qw & \qw & & \qw & \qw & \targ{} & \qw & \qw & \qw & \qw \\
+\lstick{$q_3$} & \qw & \qw & \qw & \qw & \targ{} & \qw & & \qw & \qw & \qw & \targ{} & \qw & \qw & \qw \\
+\lstick{$q_4$} & \qw & \qw & \qw & \qw & \qw & \gate{Y} & & \qw & \qw & \qw & \qw & \gate{Y} & \qw & \qw
+\end{quantikz}\par\vspace{10pt}\noindent
+\textbf{(c) Repaired full twirl (Stage 3c)}: $P_L$ uniform over all $4^5$ Paulis; for every bond $(j,k)$ with $\{P_L,Z_jZ_k\}=0$ a controlled-$X_k$ from the same ancilla is inserted\par
+\quad immediately before and after $R_z^{(k)}$ (red). Example $P_L=X_0$: anticommutes with bonds $(0,1)$ and $(4,0)$, so two repaired rotations ($R_z$ on $q_1$ and on $q_0$); $P_R=P_L$.\par
+\quad Average over the twirl: 7.5 controlled-Paulis $+$ 5.0 controlled-$X$ $=12.5$ noisy gadget gates per step.\par\vspace{2pt}\noindent\begin{quantikz}[row sep={0.62cm,between origins},column sep=0.22cm]
+\lstick{anc} & \gate{H} & \ctrl{1} & \qw & \ctrl{2} & \qw & \ctrl{2} & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \ctrl{1} & \qw & \ctrl{1} & \qw & \ctrl{1} & \gate{H} & \meter{} \\
+\lstick{$q_0$} & \qw & \targ{} & \ctrl{1} & \qw & \qw & \qw & \ctrl{1} & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \targ{} & \gate[style={fill=red!20}]{X} & \gate{R_z} & \gate[style={fill=red!20}]{X} & \targ{} & \targ{} & \qw & \qw \\
+\lstick{$q_1$} & \qw & \qw & \targ{} & \gate[style={fill=red!20}]{X} & \gate{R_z} & \gate[style={fill=red!20}]{X} & \targ{} & \ctrl{1} & \qw & \ctrl{1} & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw \\
+\lstick{$q_2$} & \qw & \qw & \ctrl{1} & \qw & \qw & \qw & \ctrl{1} & \targ{} & \gate{R_z} & \targ{} & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw \\
+\lstick{$q_3$} & \qw & \qw & \targ{} & \qw & \gate{R_z} & \qw & \targ{} & \qw & \qw & \qw & \ctrl{1} & \qw & \ctrl{1} & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw \\
+\lstick{$q_4$} & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \targ{} & \gate{R_z} & \targ{} & \qw & \ctrl{-4} & \qw & \qw & \qw & \ctrl{-4} & \qw & \qw & \qw
+\end{quantikz}
+
+\end{document}

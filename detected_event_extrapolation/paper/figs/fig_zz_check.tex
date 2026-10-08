@@ -1,0 +1,11 @@
+\documentclass[border=8pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{quantikz}
+\usepackage{amsmath}
+\begin{document}
+\begin{quantikz}[row sep={0.8cm,between origins},column sep=0.5cm, slice label style={inner sep=1pt,anchor=south west,rotate=0,font=\footnotesize}, slice style={blue!60,dashed}]
+\lstick{anc $|+\rangle$} & \ctrl{1} \slice{$G=P_L$} & \qw & \qw \slice{$G=\mathrm{CX}\,P_L\,\mathrm{CX}$} & \qw & \qw \slice{$G=P_L$} & \qw & \ctrl{1} & \gate{H} & \meter{} \\
+\lstick{$q_j$} & \gate[2]{P_L} & \ctrl{1} & \qw & \qw & \ctrl{1} & \gate[2,style={fill=red!15}]{Z_jZ_k} & \gate[2]{P_R=P_L} & \qw & \qw \\
+\lstick{$q_k$} & & \targ{} & \gate[style={fill=red!15}]{Z_k} & \gate{R_z(\phi)} & \targ{} & & & \qw & \qw
+\end{quantikz}
+\end{document}

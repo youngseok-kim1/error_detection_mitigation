@@ -1,0 +1,130 @@
+
+== A: checks wrap whole circuit, Lam~0.5: n=10 k=6 reps=5 p=0.004  (40 random instances)
+   n2             median= 106.5000  [98.0000, 114.0000]
+   Lam            median=   0.4500  [0.4160, 0.4800]
+   cov            median=   0.8680  [0.8314, 0.8873]
+   alpha          median=   0.6776  [0.6570, 0.7057]
+   fd             median=   0.4323  [0.3288, 0.4779]
+   fu             median=   0.4256  [0.2758, 0.5240]
+   rO             median=   0.1486  [0.1083, 0.2087]
+   O_all          median=   0.6777  [0.6356, 0.7319]
+   O_ps           median=   0.9481  [0.9275, 0.9629]
+   G_pec          median=   6.0498  [5.2804, 6.8210]
+   G_edpec        median=   1.8651  [1.8054, 1.9857]
+   G_ext_generic  median=   1.6777  [1.5742, 1.7712]
+   bias[raw                         ] mean=-0.31913  rms=0.31977  max|.|=0.36443
+   bias[ED                          ] mean=-0.05256  rms=0.05314  max|.|=0.07254
+   bias[ED+ext(generic r)           ] mean=-0.00278  rms=0.00665  max|.|=0.01522
+   bias[ED+ext(O-specific r)        ] mean=-0.00349  rms=0.00352  max|.|=0.00496
+   bias[ED+ext(O-spec r)+2nd        ] mean=-0.00000  rms=0.00012  max|.|=0.00036
+   bias[ED+model rescale            ] mean=-0.00302  rms=0.00305  max|.|=0.00417
+   bias[ED+model rescale, scale off ] mean=+0.01235  rms=0.01256  max|.|=0.01846
+   bias[ED+ext(O-spec r), scale off ] mean=-0.00349  rms=0.00352  max|.|=0.00496
+
+== B: same, 3x noisier, Lam~1.4: n=10 k=6 reps=5 p=0.012  (40 random instances)
+   n2             median= 106.5000  [98.0000, 114.0000]
+   Lam            median=   1.3500  [1.2480, 1.4400]
+   cov            median=   0.8720  [0.8352, 0.8913]
+   alpha          median=   0.3169  [0.2904, 0.3577]
+   fd             median=   0.4322  [0.3288, 0.4778]
+   fu             median=   0.4414  [0.2846, 0.5428]
+   rO             median=   0.1486  [0.1083, 0.2087]
+   O_all          median=   0.3096  [0.2552, 0.3905]
+   O_ps           median=   0.8320  [0.7759, 0.8749]
+   G_pec          median= 221.4702  [147.2306, 317.3483]
+   G_edpec        median=   6.2363  [5.6470, 7.5144]
+   G_ext_generic  median=   4.8633  [4.0195, 5.7589]
+   bias[raw                         ] mean=-0.68509  rms=0.68568  max|.|=0.74476
+   bias[ED                          ] mean=-0.16912  rms=0.17049  max|.|=0.22414
+   bias[ED+ext(generic r)           ] mean=-0.03893  rms=0.04323  max|.|=0.07883
+   bias[ED+ext(O-specific r)        ] mean=-0.03618  rms=0.03646  max|.|=0.04869
+   bias[ED+ext(O-spec r)+2nd        ] mean=+0.01675  rms=0.01709  max|.|=0.02524
+   bias[ED+model rescale            ] mean=-0.03143  rms=0.03164  max|.|=0.04102
+   bias[ED+model rescale, scale off ] mean=+0.01428  rms=0.01581  max|.|=0.03269
+   bias[ED+ext(O-spec r), scale off ] mean=-0.03618  rms=0.03646  max|.|=0.04869
+
+== C: only 2 checks (lower coverage): n=10 k=2 reps=5 p=0.004  (40 random instances)
+   n2             median=  69.0000  [64.0000, 72.0000]
+   Lam            median=   0.2840  [0.2640, 0.2960]
+   cov            median=   0.6452  [0.5251, 0.7011]
+   alpha          median=   0.8378  [0.8210, 0.8680]
+   fd             median=   0.4564  [0.3169, 0.5404]
+   fu             median=   0.4699  [0.3170, 0.5350]
+   rO             median=   0.5640  [0.3194, 1.1157]
+   O_all          median=   0.7704  [0.7574, 0.8321]
+   O_ps           median=   0.9062  [0.8623, 0.9312]
+   G_pec          median=   3.1143  [2.8748, 3.2674]
+   G_edpec        median=   1.7792  [1.7120, 1.9832]
+   G_ext_generic  median=   1.5729  [1.3701, 1.9144]
+   bias[raw                         ] mean=-0.22740  rms=0.22781  max|.|=0.24265
+   bias[ED                          ] mean=-0.09517  rms=0.09618  max|.|=0.13767
+   bias[ED+ext(generic r)           ] mean=-0.01046  rms=0.01740  max|.|=0.03680
+   bias[ED+ext(O-specific r)        ] mean=-0.00931  rms=0.00935  max|.|=0.01089
+   bias[ED+ext(O-spec r)+2nd        ] mean=-0.00301  rms=0.00306  max|.|=0.00460
+   bias[ED+model rescale            ] mean=-0.00594  rms=0.00599  max|.|=0.00726
+   bias[ED+model rescale, scale off ] mean=+0.02256  rms=0.02319  max|.|=0.04028
+   bias[ED+ext(O-spec r), scale off ] mean=-0.00931  rms=0.00935  max|.|=0.01089
+
+== D: checks cover only 2nd half of circuit: n=10 k=6 reps=5 p=0.004  (40 random instances)
+   n2             median= 100.5000  [92.0000, 112.0000]
+   Lam            median=   0.4260  [0.3920, 0.4720]
+   cov            median=   0.6342  [0.5980, 0.6842]
+   alpha          median=   0.7651  [0.7345, 0.7927]
+   fd             median=   0.4266  [0.3123, 0.4806]
+   fu             median=   0.4739  [0.3177, 0.5216]
+   rO             median=   0.6457  [0.4859, 0.9268]
+   O_all          median=   0.6864  [0.6383, 0.7737]
+   O_ps           median=   0.8619  [0.8440, 0.9030]
+   G_pec          median=   5.4961  [4.7970, 6.6061]
+   G_edpec        median=   2.4374  [2.3262, 2.5969]
+   G_ext_generic  median=   2.0592  [1.9060, 2.3691]
+   bias[raw                         ] mean=-0.31220  rms=0.31316  max|.|=0.36171
+   bias[ED                          ] mean=-0.13732  rms=0.13777  max|.|=0.15598
+   bias[ED+ext(generic r)           ] mean=-0.01716  rms=0.02124  max|.|=0.04901
+   bias[ED+ext(O-specific r)        ] mean=-0.00345  rms=0.00348  max|.|=0.00448
+   bias[ED+ext(O-spec r)+2nd        ] mean=-0.00117  rms=0.00118  max|.|=0.00155
+   bias[ED+model rescale            ] mean=-0.00211  rms=0.00214  max|.|=0.00282
+   bias[ED+model rescale, scale off ] mean=+0.04248  rms=0.04267  max|.|=0.04863
+   bias[ED+ext(O-spec r), scale off ] mean=-0.00345  rms=0.00348  max|.|=0.00448
+
+== E: checks cover only 1st half of circuit: n=10 k=6 reps=5 p=0.004  (40 random instances)
+   n2             median= 101.0000  [91.0000, 113.0000]
+   Lam            median=   0.4280  [0.3880, 0.4760]
+   cov            median=   0.6348  [0.5832, 0.6704]
+   alpha          median=   0.7645  [0.7290, 0.7974]
+   fd             median=   0.4011  [0.2783, 0.4709]
+   fu             median=   0.4692  [0.3308, 0.5196]
+   rO             median=   0.6556  [0.5170, 0.8728]
+   O_all          median=   0.6908  [0.6549, 0.7837]
+   O_ps           median=   0.8611  [0.8440, 0.8988]
+   G_pec          median=   5.5400  [4.7209, 6.7127]
+   G_edpec        median=   2.4366  [2.3189, 2.5836]
+   G_ext_generic  median=   2.0904  [1.9264, 2.3968]
+   bias[raw                         ] mean=-0.30827  rms=0.30914  max|.|=0.34512
+   bias[ED                          ] mean=-0.13825  rms=0.13866  max|.|=0.15595
+   bias[ED+ext(generic r)           ] mean=-0.02124  rms=0.02485  max|.|=0.04639
+   bias[ED+ext(O-specific r)        ] mean=-0.00339  rms=0.00342  max|.|=0.00486
+   bias[ED+ext(O-spec r)+2nd        ] mean=-0.00119  rms=0.00122  max|.|=0.00212
+   bias[ED+model rescale            ] mean=-0.00204  rms=0.00205  max|.|=0.00265
+   bias[ED+model rescale, scale off ] mean=+0.04291  rms=0.04308  max|.|=0.04910
+   bias[ED+ext(O-spec r), scale off ] mean=-0.00339  rms=0.00342  max|.|=0.00486
+
+== scaling of bias with p (single instance, seed 3)
+  p=0.001 Lam=0.11 alpha=0.905 | ED -1.01e-02 | ext(O-spec) -1.70e-04 | +2nd -1.35e-05 | generic r +4.49e-04
+  p=0.002 Lam=0.23 alpha=0.819 | ED -2.04e-02 | ext(O-spec) -6.95e-04 | +2nd -2.85e-05 | generic r +4.42e-04
+  p=0.004 Lam=0.46 alpha=0.671 | ED -4.18e-02 | ext(O-spec) -2.90e-03 | +2nd +1.37e-04 | generic r -1.03e-03
+  p=0.008 Lam=0.91 alpha=0.453 | ED -8.75e-02 | ext(O-spec) -1.26e-02 | +2nd +3.58e-03 | generic r -1.05e-02
+  p=0.016 Lam=1.82 alpha=0.211 | ED -1.95e-01 | ext(O-spec) -6.02e-02 | +2nd +7.02e-02 | generic r -6.20e-02
+
+sampled: alpha=0.6712 (exact 0.6712)  <O>raw=0.7041 (exact 0.7043)  <O>ED=0.9583 (exact 0.9582)
+two-point estimator on samples: 0.9971  (batch std x sqrt(N/B) -> N*Var = 0.157)
+
+G   alpha(G)   -ln(alpha)/G   ln<O>_raw/G   ln<O>_ED/G
+0.5   0.8186     0.4003      -0.3506      -0.0413
+1.0   0.6712     0.3987      -0.3506      -0.0427
+1.5   0.5513     0.3970      -0.3506      -0.0441
+2.0   0.4536     0.3952      -0.3506      -0.0457
+3.0   0.3093     0.3912      -0.3506      -0.0493
+ED data, G in [1.  1.5 2.  3. ]: exponential fit intercept bias +0.0122; exponent quadratic in G: -0.00164
+first-order coefficient 2*Lam_O^u = 0.0401; ED slope at G->0 from fit = 0.0403
+relative N*Var at G=3: raw ~ exp(-2 y_raw) = 8.2; ED ~ exp(-2 y_ED)/alpha = 4.3

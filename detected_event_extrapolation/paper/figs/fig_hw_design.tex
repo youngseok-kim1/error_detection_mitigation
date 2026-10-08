@@ -1,0 +1,14 @@
+\documentclass[border=6pt,varwidth=40cm]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{quantikz}
+\usepackage{amsmath}
+\begin{document}
+\noindent
+\begin{quantikz}[row sep={0.66cm,between origins},column sep=0.36cm]
+\lstick{$a_i\ |+\rangle$} & \qw & \ctrl{1} & \qw & \qw & \qw & \qw & \qw & \qw & \ctrl{1} & \gate{H} & \meter{} \\
+\lstick{$q_i$} & \gate[style={fill=green!12}]{F_i R_x F_i^{\dagger}} & \gate[style={fill=orange!18}]{F_iZF_i^\dagger} & \ctrl{1} & \qw & \ctrl{1} & \qw & \qw & \qw & \gate[style={fill=orange!18}]{F_iZF_i^\dagger} & \qw & \qw \\
+\lstick{$q_{i+1}$} & \gate[style={fill=green!12}]{F_{i+1}R_xF_{i+1}^{\dagger}} & \gate[style={fill=orange!18}]{F_{i+1}ZF_{i+1}^\dagger} & \gate[style={fill=blue!8}]{F_{i+1}} & \gate{R_z(\phi)} & \gate[style={fill=blue!8}]{F_{i+1}^\dagger} & \ctrl{1} & \qw & \ctrl{1} & \gate[style={fill=orange!18}]{F_{i+1}ZF_{i+1}^\dagger} & \qw & \qw \\
+\lstick{$a_{i+1}\ |+\rangle$} & \qw & \ctrl{-1} & \qw & \qw & \qw & \qw & \qw & \qw & \ctrl{-1} & \gate{H} & \meter{} \\
+\lstick{$q_{i+2}$} & \gate[style={fill=green!12}]{F_{i+2}R_xF_{i+2}^{\dagger}} & \qw & \qw & \qw & \qw & \gate[style={fill=blue!8}]{F_{i+2}} & \gate{R_z(\phi)} & \gate[style={fill=blue!8}]{F_{i+2}^\dagger} & \qw & \qw & \qw
+\end{quantikz}
+\end{document}

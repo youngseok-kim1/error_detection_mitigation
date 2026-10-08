@@ -1,0 +1,18 @@
+\documentclass[border=6pt,varwidth=40cm]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{quantikz}
+\usepackage{amsmath}
+\begin{document}
+\noindent
+\begin{quantikz}[row sep={0.7cm,between origins},column sep=0.8cm, slice label style={inner sep=1pt,anchor=south west,font=\footnotesize}, slice style={blue!60,dashed}, slice all style={}]
+\lstick{$q_j$} & \gate{R_x} \slice{$G=Z_a$} & \ctrl{1} \slice{$Z_jZ_a$} & \qw \slice{$Z_jZ_kZ_a$} & \qw & \qw & \ctrl{1} \slice{$Z_a$} & \qw & \qw \\
+\lstick{$a_{jk}\ |0\rangle$} & \qw & \targ{} & \targ{} & \gate[style={fill=red!15}]{R_z(\phi)} & \targ{} & \targ{} & \qw & \meter{Z} \\
+\lstick{$q_k$} & \gate{R_x} & \qw & \ctrl{-1} & \qw & \ctrl{-1} & \qw & \qw & \qw
+\end{quantikz}
+\hspace{1.5cm}
+\begin{quantikz}[row sep={0.7cm,between origins},column sep=0.5cm]
+\lstick{$q_j$} & \gate{F_j} & \ctrl{1} & \qw & \qw & \qw & \ctrl{1} & \gate{F_j^\dagger} & \qw \\
+\lstick{$a_{jk}\ |0\rangle$} & \qw & \targ{} & \targ{} & \gate{R_z(\phi)} & \targ{} & \targ{} & \qw & \meter{Z} \\
+\lstick{$q_k$} & \gate{F_k} & \qw & \ctrl{-1} & \qw & \ctrl{-1} & \qw & \gate{F_k^\dagger} & \qw
+\end{quantikz}
+\end{document}

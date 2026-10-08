@@ -1,0 +1,6 @@
+readout 0%, estimator assumes 0%:  stratified O_1 = 0.99834   (single-species, all 3 checks: 0.9642;  species-0 weight 0.8270)
+readout 1%, estimator assumes 1%:  stratified O_1 = 0.99834   (single-species, all 3 checks: 0.9639;  species-0 weight 0.8270)
+readout 1%, estimator assumes 0%:  stratified O_1 = 0.99825   (single-species, all 3 checks: 0.9638;  species-0 weight 0.7814)
+readout 1%, estimator assumes 2%:  stratified O_1 = 0.99842   (single-species, all 3 checks: 0.9640;  species-0 weight 0.8763)
+readout 3%, estimator assumes 3%:  stratified O_1 = 0.99834   (single-species, all 3 checks: 0.9632;  species-0 weight 0.8270)
+readout 3%, estimator assumes 0%:  stratified O_1 = 0.99807   (single-species, all 3 checks: 0.9629;  species-0 weight 0.6953)

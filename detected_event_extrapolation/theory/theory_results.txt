@@ -1,0 +1,131 @@
+
+== E1 full-weight twirled, p=0.004, p_check=0, pm=0.0  gates: payload 50, checks 89.8 
+   O_all = 0.83205
+   m=0  alpha=1.0000  u=1.0000  O_PS=0.83205  single-species O1=nan
+   m=1  alpha=0.9096  u=0.5497  O_PS=0.90705  single-species O1=0.99860
+   m=2  alpha=0.8637  u=0.2894  O_PS=0.95157  single-species O1=1.00025
+   m=3  alpha=0.8412  u=0.1486  O_PS=0.97484  single-species O1=0.99976
+   m=4  alpha=0.8298  u=0.0753  O_PS=0.98743  single-species O1=1.00008
+   m=5  alpha=0.8242  u=0.0379  O_PS=0.99358  single-species O1=0.99995
+   m=6  alpha=0.8213  u=0.0190  O_PS=0.99676  single-species O1=0.99995
+   t<=0: alpha=0.8213 u=0.0190 O=0.99676 est=0.99995
+   t<=1: alpha=0.8382 u=0.1305 O=0.97835 est=1.00031
+   t<=2: alpha=0.8808 u=0.3903 O=0.93415 est=0.99950
+   t<=3: alpha=0.9379 u=0.6997 O=0.88231 est=0.99943
+   t<=4: alpha=0.9804 u=0.9085 O=0.84722 est=0.99773
+   t<=5: alpha=0.9972 u=0.9871 O=0.83419 est=0.99785
+   t<=6: alpha=1.0000 u=1.0000 O=0.83205 est=nan
+
+== E1 full-weight twirled, p=0.004, p_check=0, pm=0.03  gates: payload 50, checks 89.8 
+   O_all = 0.83205
+   m=0  alpha=1.0000  u=1.0000  O_PS=0.83205  single-species O1=nan
+   m=1  alpha=0.8851  u=0.5649  O_PS=0.90451  single-species O1=0.99860
+   m=2  alpha=0.8154  u=0.3066  O_PS=0.94866  single-species O1=1.00022
+   m=3  alpha=0.7697  u=0.1624  O_PS=0.97252  single-species O1=0.99975
+   m=4  alpha=0.7359  u=0.0849  O_PS=0.98582  single-species O1=1.00009
+   m=5  alpha=0.7085  u=0.0441  O_PS=0.99255  single-species O1=0.99996
+   m=6  alpha=0.6846  u=0.0228  O_PS=0.99613  single-species O1=0.99996
+   t<=0: alpha=0.6846 u=0.0228 O=0.99613 est=0.99996
+   t<=1: alpha=0.8280 u=0.1321 O=0.97801 est=1.00023
+   t<=2: alpha=0.8804 u=0.3904 O=0.93419 est=0.99961
+   t<=3: alpha=0.9378 u=0.6998 O=0.88230 est=0.99940
+   t<=4: alpha=0.9803 u=0.9085 O=0.84724 est=0.99803
+   t<=5: alpha=0.9972 u=0.9871 O=0.83419 est=0.99786
+   t<=6: alpha=1.0000 u=1.0000 O=0.83205 est=0.50000
+
+== E1 full-weight twirled, p=0.012  gates: payload 50, checks 89.8 
+   O_all = 0.57467
+   m=0  alpha=1.0000  u=1.0000  O_PS=0.57467  single-species O1=nan
+   m=1  alpha=0.7744  u=0.6457  O_PS=0.72382  single-species O1=0.99558
+   m=2  alpha=0.6601  u=0.3787  O_PS=0.83938  single-species O1=1.00076
+   m=3  alpha=0.6037  u=0.2070  O_PS=0.91135  single-species O1=0.99925
+   m=4  alpha=0.5753  u=0.1086  O_PS=0.95404  single-species O1=1.00027
+   m=5  alpha=0.5613  u=0.0557  O_PS=0.97617  single-species O1=0.99984
+   m=6  alpha=0.5542  u=0.0282  O_PS=0.98788  single-species O1=0.99986
+
+== E2 gadget noise p_check=0.001: m checks, all gadgets noisy (payload p=0.004)
+   m=1: check gates 14.9  alpha=0.9029  O_all=0.82252  O_PS=0.90170  estimate=0.99995  reference (outer right gadget only)=0.99453
+   m=2: check gates 29.8  alpha=0.8482  O_all=0.81299  O_PS=0.94237  estimate=0.99644  reference (outer right gadget only)=0.99440
+   m=3: check gates 44.8  alpha=0.8149  O_all=0.80370  O_PS=0.96454  estimate=0.99368  reference (outer right gadget only)=0.99452
+   m=4: check gates 59.9  alpha=0.7924  O_all=0.79427  O_PS=0.97619  estimate=0.99176  reference (outer right gadget only)=0.99447
+   m=6: check gates 89.8  alpha=0.7619  O_all=0.77600  O_PS=0.98503  estimate=0.98941  reference (outer right gadget only)=0.99449
+
+== E2 gadget noise p_check=0.004: m checks, all gadgets noisy (payload p=0.004)
+   m=1: check gates 14.9  alpha=0.8842  O_all=0.79456  O_PS=0.88379  estimate=0.99993  reference (outer right gadget only)=0.97828
+   m=2: check gates 29.8  alpha=0.8039  O_all=0.75832  O_PS=0.91430  estimate=0.98469  reference (outer right gadget only)=0.97776
+   m=3: check gates 44.8  alpha=0.7428  O_all=0.72420  O_PS=0.93151  estimate=0.97346  reference (outer right gadget only)=0.97822
+   m=4: check gates 59.9  alpha=0.6922  O_all=0.69080  O_PS=0.94074  estimate=0.96554  reference (outer right gadget only)=0.97803
+   m=6: check gates 89.8  alpha=0.6097  O_all=0.62934  O_PS=0.94820  estimate=0.95658  reference (outer right gadget only)=0.97813
+
+== E3 fixed full-weight checks  gates: payload 50, checks 90.0 
+   O_all = 0.83205
+   m=0  alpha=1.0000  u=1.0000  O_PS=0.83205  single-species O1=nan
+   m=1  alpha=0.9090  u=0.5501  O_PS=0.90954  single-species O1=1.00428
+   m=2  alpha=0.8761  u=0.2853  O_PS=0.93862  single-species O1=0.98117
+   m=3  alpha=0.8449  u=0.1480  O_PS=0.96817  single-species O1=0.99180
+   m=4  alpha=0.8292  u=0.0754  O_PS=0.98801  single-species O1=1.00072
+   m=5  alpha=0.8232  u=0.0380  O_PS=0.99503  single-species O1=1.00147
+   m=6  alpha=0.8209  u=0.0190  O_PS=0.99911  single-species O1=1.00235
+
+== E1 full-weight twirled, p=0.004, M=1000 flavor draws  gates: payload 50, checks 89.8 
+   O_all = 0.83205
+   m=0  alpha=1.0000  u=1.0000  O_PS=0.83205  single-species O1=nan
+   m=1  alpha=0.9093  u=0.5499  O_PS=0.90759  single-species O1=0.99986
+   m=2  alpha=0.8637  u=0.2894  O_PS=0.95162  single-species O1=1.00033
+   m=3  alpha=0.8411  u=0.1486  O_PS=0.97506  single-species O1=1.00003
+   m=4  alpha=0.8297  u=0.0753  O_PS=0.98748  single-species O1=1.00014
+   m=5  alpha=0.8241  u=0.0379  O_PS=0.99366  single-species O1=1.00003
+   m=6  alpha=0.8213  u=0.0190  O_PS=0.99680  single-species O1=0.99999
+   N x Var of the estimator vs m: [np.float64(0.501), np.float64(0.167), np.float64(0.072), np.float64(0.033), np.float64(0.016), np.float64(0.008)]   plain ED cost (1-O^2)/alpha at m=6: 0.008
+
+== E4 local twirled, same support: gates (np.float64(50.0), np.float64(27.076666666666668))
+   T=000 alpha=1.0000 O_PS=0.83205 single-species=0.83205
+   T=001 alpha=0.9371 O_PS=0.88295 single-species=0.93344
+   T=010 alpha=0.9366 O_PS=0.88353 single-species=0.93466
+   T=011 alpha=0.9068 O_PS=0.91007 single-species=0.93473
+   T=100 alpha=0.9365 O_PS=0.88368 single-species=0.93497
+   T=101 alpha=0.9072 O_PS=0.90979 single-species=0.93435
+   T=110 alpha=0.9069 O_PS=0.91004 single-species=0.93469
+   T=111 alpha=0.8931 O_PS=0.92293 single-species=0.93460
+   stratified O_1 = 0.93410   species weights q_V = [ 8.815e-01 -6.000e-04 -2.000e-04  2.000e-04 -2.000e-03  2.200e-03
+  2.700e-03  1.163e-01]   cond(M) = 201.5
+
+== E4 local twirled, distinct supports: gates (np.float64(50.0), np.float64(26.825))
+   T=000 alpha=1.0000 O_PS=0.83205 single-species=0.83205
+   T=001 alpha=0.9371 O_PS=0.88295 single-species=0.93344
+   T=010 alpha=0.9423 O_PS=0.87841 single-species=0.92390
+   T=011 alpha=0.8998 O_PS=0.91666 single-species=0.94368
+   T=100 alpha=0.9350 O_PS=0.89310 single-species=0.95393
+   T=101 alpha=0.8955 O_PS=0.92712 single-species=0.95767
+   T=110 alpha=0.9003 O_PS=0.92266 single-species=0.95157
+   T=111 alpha=0.8721 O_PS=0.94884 single-species=0.96425
+   stratified O_1 = 0.99834   species weights q_V = [0.827  0.0238 0.0157 0.0116 0.0187 0.0224 0.0206 0.0603]   cond(M) = 201.5
+
+== E5 syndrome-weight distribution among flagged shots (w = 1..k), vs Binomial(k,1/2) conditioned on w>=1
+   twirled full : [0.0942 0.2386 0.3194 0.2379 0.0943 0.0156]
+   twirled local: [0.3168 0.2962 0.2194 0.1211 0.0405 0.0061]
+   Bin(6,1/2)   : [0.0952 0.2381 0.3175 0.2381 0.0952 0.0159]
+
+344s
+E2s: gadget noise, stratified inversion over all 2^m subsets vs single-species vs reference
+  p_check=0.001 m=2: single-species 0.99644   stratified 1.00045   reference 0.99440   cond 40   q_V=[0.7921 0.0024 0.0141 0.1914]
+  p_check=0.001 m=3: single-species 0.99368   stratified 0.99988   reference 0.99452   cond 255   q_V=[ 7.799e-01  1.800e-03  1.900e-03 -2.000e-04  1.230e-02 -1.000e-04
+  1.210e-02  1.923e-01]
+  p_check=0.001 m=4: single-species 0.99176   stratified 1.00029   reference 0.99447   cond 1618   q_V=[ 7.674e-01  2.000e-03  2.300e-03 -1.200e-03  2.400e-03 -1.300e-03
+ -1.000e-03  2.000e-03  1.290e-02 -7.000e-04 -1.200e-03  1.700e-03
+  9.300e-03  2.100e-03  1.390e-02  1.895e-01]
+  p_check=0.004 m=2: single-species 0.98469   stratified 1.00045   reference 0.97776   cond 40   q_V=[0.72   0.007  0.0487 0.2243]
+  p_check=0.004 m=3: single-species 0.97346   stratified 0.99990   reference 0.97822   cond 255   q_V=[ 6.756e-01  6.300e-03  6.400e-03 -1.000e-04  4.420e-02 -1.000e-04
+  4.260e-02  2.251e-01]
+  p_check=0.004 m=4: single-species 0.96554   stratified 1.00029   reference 0.97803   cond 1618   q_V=[ 6.332e-01  6.000e-03  6.200e-03 -8.000e-04  6.300e-03 -7.000e-04
+ -8.000e-04  1.100e-03  4.230e-02 -2.000e-04 -5.000e-04  7.000e-04
+  3.770e-02  1.600e-03  4.370e-02  2.241e-01]
+nested stratification (m+1 points, m+1 species) under gadget noise
+  p_check=0.001 m=2: single-species 0.99644  nested-stratified 1.00050  cond 22  q_s=[0.7945 0.0092 0.1962]
+  p_check=0.001 m=3: single-species 0.99368  nested-stratified 1.00075  cond 53  q_s=[0.7834 0.0087 0.009  0.1989]
+  p_check=0.001 m=4: single-species 0.99176  nested-stratified 1.00074  cond 121  q_s=[0.7725 0.0086 0.0083 0.0063 0.2043]
+  p_check=0.001 m=6: single-species 0.98941  nested-stratified 0.99879  cond 577  q_s=[ 0.7521  0.0085  0.0071  0.004  -0.0015 -0.0113  0.2411]
+  p_check=0.004 m=2: single-species 0.98469  nested-stratified 1.00102  cond 22  q_s=[0.727  0.0346 0.2383]
+  p_check=0.004 m=3: single-species 0.97346  nested-stratified 1.00107  cond 53  q_s=[0.6881 0.0316 0.0304 0.2499]
+  p_check=0.004 m=4: single-species 0.96554  nested-stratified 1.00048  cond 121  q_s=[0.6506 0.0304 0.0282 0.018  0.2728]
+  p_check=0.004 m=6: single-species 0.95658  nested-stratified 0.99828  cond 577  q_s=[ 0.583   0.0286  0.0238  0.016  -0.0068 -0.042   0.3975]

@@ -1,0 +1,11 @@
+(1) full-weight twirled checks, noiseless gadgets, M=400 flavor draws, ideal = 1
+depolarizing p=0.004 (reference)                                       O_all=0.8321 | m=1: PS 0.9069 est 0.99823  m=2: PS 0.9513 est 0.99983  m=3: PS 0.9747 est 0.99962  m=6: PS 0.9968 est 1.00000
+biased random Pauli rates p=0.004                                      O_all=0.8390 | m=1: PS 0.9107 est 0.99812  m=2: PS 0.9534 est 0.99999  m=3: PS 0.9757 est 0.99955  m=6: PS 0.9969 est 0.99997
+biased + correlated 3-qubit faults p3=0.003/layer                      O_all=0.8092 | m=1: PS 0.8932 est 0.99879  m=2: PS 0.9439 est 1.00038  m=3: PS 0.9704 est 0.99933  m=6: PS 0.9962 est 0.99989
+biased + correlated, 3x noise (p=0.012, p3=0.009)                      O_all=0.5293 | m=1: PS 0.6856 est 0.99626  m=2: PS 0.8127 est 1.00115  m=3: PS 0.8940 est 0.99796  m=6: PS 0.9853 est 0.99971
+
+(3) gadget noise p_check = p = 0.004 and readout error 1%  (full-weight twirled, M=400)
+depol gadgets, readout 0                                               O_all=0.6301 | m=1: PS 0.7006 est 0.79254  m=2: PS 0.7599 est 0.81854  m=3: PS 0.8105 est 0.84696  m=6: PS 0.9485 est 0.95686
+depol gadgets, readout 1%                                              O_all=0.6301 | m=1: PS 0.6998 est 0.79254  m=2: PS 0.7587 est 0.81845  m=3: PS 0.8092 est 0.84674  m=6: PS 0.9473 est 0.95619
+depol gadgets, readout 1% but estimator assumes 0                      O_all=0.6301 | m=1: PS 0.6998 est 0.79254  m=2: PS 0.7587 est 0.81845  m=3: PS 0.8092 est 0.84674  m=6: PS 0.9473 est 0.95619
+biased payload + biased gadgets, readout 1%                            O_all=0.6694 | m=1: PS 0.7371 est 0.82731  m=2: PS 0.7926 est 0.85000  m=3: PS 0.8380 est 0.87349  m=6: PS 0.9559 est 0.96392

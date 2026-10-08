@@ -1,0 +1,443 @@
+rms |bias| of <X_i> over sites (and instances)
+
+                                           paper d=6 p=0.004   paper d=6 p=0.004     generic p=0.004     generic p=0.004   paper d=6 p=0.012   paper d=6 p=0.012     generic p=0.012     generic p=0.012
+                                                    anc only          anc+parity            anc only          anc+parity            anc only          anc+parity            anc only          anc+parity
+total fault rate Lambda                                0.500               0.500               0.340               0.340               1.501               1.501               1.021               1.021
+coverage                                               0.552               0.808               0.562               0.813               0.552               0.808               0.562               0.813
+acceptance                                             0.765               0.676               0.829               0.763               0.467               0.335               0.582               0.460
+mean |ideal <X_i>|                                     0.836               0.836               0.658               0.658               0.836               0.836               0.658               0.658
+unmitigated                                           0.1680              0.1680              0.1034              0.1034              0.4013              0.4013              0.2627              0.2627
+error detection only                                  0.0922              0.0392              0.0551              0.0212              0.2592              0.1515              0.1577              0.0780
+extrapolated, coverage ratio                          0.0307              0.0086              0.0174              0.0036              0.1439              0.0922              0.0758              0.0365
+extrapolated, exact 1st-order ratio                   0.0172              0.0122              0.0078              0.0061              0.1186              0.0992              0.0567              0.0468
+  ... + in-situ pair term                             0.0132              0.0036              0.0064              0.0040              0.0854              0.0104              0.0445              0.0244
+extrapolated, Clifford-trained ratio                  0.0007              0.0008              0.0038              0.0046              0.0073              0.0022              0.0156              0.0129
+Clifford regression on ED data                        0.0129              0.0078              0.0165              0.0063              0.0349              0.0266              0.0494              0.0213
+1st-order PEC, exact model                            0.0037              0.0071              0.0014              0.0028              0.0327              0.0660              0.0127              0.0262
+1st-order PEC, model 30% high                         0.0251              0.0027              0.0156              0.0029              0.0538              0.0383              0.0391              0.0102
+ZNE, undetected faults amplified                      0.0059              0.0072              0.0026              0.0029              0.0487              0.0667              0.0209              0.0266
+ZNE on ED, all noise amplified                        0.0096              0.0265              0.0040              0.0102              0.0767              0.2472              0.0322              0.1012
+ZNE, no checks                                        0.0087              0.0087              0.0053              0.0053              0.0529              0.0529              0.0346              0.0346
+
+sampling cost, N x Var for one +-1 observable (median over instances; training shots not included)
+PEC full                                                 7.4                 7.4                 3.9                 3.9               404.6               404.6                59.3                59.3
+PEC 1st order + ED                                       3.2                 2.2                 2.2                 1.7                31.4                 9.4                10.2                 4.7
+ED                                                       0.6                 0.5                 0.5                 0.5                 1.4                 1.6                 1.0                 1.0
+ext two-point                                            1.1                 0.6                 0.9                 0.5                 3.8                 2.1                 2.6                 1.3
+u-amp exp fit                                            6.5                 4.5                 5.0                 3.7                33.2                17.5                16.3                 9.9
+ZNE raw exp fit                                          9.0                 9.0                 5.9                 5.9                63.2                63.2                25.4                25.4
+ZNE on ED exp fit                                        8.7                 7.2                 5.9                 4.7               153.3               253.0                37.8                41.4
+
+fitted ratios: coverage ratio | exact 1st-order (mean over sites) | Clifford-trained (pooled)
+  flag d=6 p=0.004       anc     0.811 | 0.989 | 1.223
+  flag d=6 p=0.004       parity  0.238 | 0.209 | 0.300
+  generic p=0.004        anc     0.780 | 0.973 | 1.132
+  generic p=0.004        parity  0.231 | 0.383 | 0.288
+  flag d=6 p=0.012       anc     0.811 | 0.989 | 1.874
+  flag d=6 p=0.012       parity  0.237 | 0.209 | 0.611
+  generic p=0.012        anc     0.780 | 0.963 | 1.496
+  generic p=0.012        parity  0.231 | 0.368 | 0.462
+
+acceptance change when only undetected faults are amplified: max 3.8e-15
+
+================ simulator checks (test_sim.py) ================
+ring=False: |ideal - expm| = 1.4e-15;  noiseless circuit with ancillas: P(s=0) = 1.000000000000, |run - ideal| over all X strings = 1.0e-15
+ring=True: |ideal - expm| = 1.7e-15;  noiseless circuit with ancillas: P(s=0) = 1.000000000000, |run - ideal| over all X strings = 1.6e-15
+n=4 d=3 parity=False nonuniform=False: coverage 0.533, acceptance with only undetected faults = 1.000000000000
+n=4 d=3 parity=False nonuniform=True: coverage 0.573, acceptance with only undetected faults = 1.000000000000
+n=4 d=3 parity=True nonuniform=False: coverage 0.800, acceptance with only undetected faults = 1.000000000000
+n=4 d=3 parity=True nonuniform=True: coverage 0.830, acceptance with only undetected faults = 1.000000000000
+n=5 d=2 parity=False nonuniform=False: coverage 0.533, acceptance with only undetected faults = 1.000000000000
+n=5 d=2 parity=False nonuniform=True: coverage 0.569, acceptance with only undetected faults = 1.000000000000
+n=5 d=2 parity=True nonuniform=False: coverage 0.800, acceptance with only undetected faults = 1.000000000000
+n=5 d=2 parity=True nonuniform=True: coverage 0.830, acceptance with only undetected faults = 1.000000000000
+p=0.002: ED bias X_0 = -9.58e-03   undetected removed: -9.71e-05
+p=0.004: ED bias X_0 = -1.92e-02   undetected removed: -3.88e-04
+p=0.008: ED bias X_0 = -3.84e-02   undetected removed: -1.55e-03
+depolarizing check: 5.721958498152797e-17
+
+================ full tables (report.py) ================
+
+### flag d=2 p=0.004 | ancilla checks only | 1 instance(s)
+    Lam=0.180  coverage=0.585  alpha=0.901  r_cov=0.708  r1(X_i) mean=1.000 [1.00,1.00]  r_train(pooled)=1.059
+    |ideal <X_i>| mean=0.640
+    cost (N x Var, central site): PEC full=2.1  PEC 1st order + ED=1.5  ED=0.7  ext two-point=0.9  u-amp linear=6.2  u-amp exp fit=5.3  ZNE raw exp fit=5.5  ZNE on ED exp fit=5.6
+    estimator                                X_i rms   X_i max   m_x mean   m_x rms    XX rms
+    raw                                      0.03712   0.03880   -0.03710   0.03710   0.05187
+    ED                                       0.01911   0.02000   -0.01911   0.01911   0.02673
+    ext, coverage ratio                      0.00636   0.00668   -0.00636   0.00636   0.00892
+    ext, r = 1                               0.00111   0.00119   -0.00111   0.00111   0.00160
+    ext, oracle 1st-order ratio              0.00111   0.00119   -0.00111   0.00111   0.00208
+    ext(exp form), oracle ratio              0.00057   0.00060   -0.00057   0.00057   0.00080
+    ext, oracle ratio + pair term            0.00081   0.00087   -0.00076   0.00076   0.00169
+    ext, ratio from Clifford training        0.00008   0.00016   -0.00003   0.00003   0.00041
+    ext, site-pooled training ratio          0.00006   0.00009   -0.00005   0.00005   0.00041
+    CDR on raw (pooled slope)                0.00321   0.00479   -0.00299   0.00299   0.00661
+    CDR on ED (pooled slope)                 0.00163   0.00244   -0.00152   0.00152   0.00311
+    PEC 1st order (exact model)              0.00028   0.00029   -0.00028   0.00028   0.00038
+    PEC 1st order (model 30% high)           0.00548   0.00574   +0.00548   0.00548   0.00780
+    u-amp ZNE, linear (G=1,2)                0.00085   0.00092   -0.00084   0.00084   0.00173
+    u-amp ZNE, exp fit (G=1,2,3)             0.00030   0.00032   -0.00030   0.00030   0.00045
+    u-amp ZNE, linear (model 30% high)       0.00453   0.00469   +0.00453   0.00453   0.00552
+    ZNE raw, exp fit (G=1,2,3)               0.00007   0.00010   -0.00007   0.00007   0.00033
+    ZNE on ED, exp fit (G=1,2,3)             0.00092   0.00095   +0.00092   0.00092   0.00118
+
+### flag d=2 p=0.004 | ancilla checks + parity | 1 instance(s)
+    Lam=0.180  coverage=0.822  alpha=0.864  r_cov=0.216  r1(X_i) mean=0.251 [0.23,0.27]  r_train(pooled)=0.255
+    |ideal <X_i>| mean=0.640
+    cost (N x Var, central site): PEC full=2.1  PEC 1st order + ED=1.3  ED=0.7  ext two-point=0.8  u-amp linear=6.3  u-amp exp fit=5.1  ZNE raw exp fit=5.5  ZNE on ED exp fit=5.5
+    estimator                                X_i rms   X_i max   m_x mean   m_x rms    XX rms
+    raw                                      0.03712   0.03880   -0.03710   0.03710   0.05187
+    ED                                       0.00814   0.00859   -0.00813   0.00813   0.00892
+    ext, coverage ratio                      0.00192   0.00241   -0.00187   0.00187   0.00078
+    ext, r = 1                               0.02087   0.02173   +0.02084   0.02084   0.03409
+    ext, oracle 1st-order ratio              0.00087   0.00092   -0.00087   0.00087   0.00114
+    ext(exp form), oracle ratio              0.00066   0.00068   -0.00066   0.00066   0.00073
+    ext, oracle ratio + pair term            0.00032   0.00034   -0.00029   0.00029   0.00047
+    ext, ratio from Clifford training        0.00102   0.00174   -0.00048   0.00048   0.00217
+    ext, site-pooled training ratio          0.00088   0.00129   -0.00074   0.00074   0.00193
+    CDR on raw (pooled slope)                0.00321   0.00479   -0.00299   0.00299   0.00661
+    CDR on ED (pooled slope)                 0.00130   0.00170   -0.00123   0.00123   0.00262
+    PEC 1st order (exact model)              0.00052   0.00054   -0.00052   0.00052   0.00062
+    PEC 1st order (model 30% high)           0.00178   0.00192   +0.00178   0.00178   0.00190
+    u-amp ZNE, linear (G=1,2)                0.00062   0.00065   -0.00062   0.00062   0.00078
+    u-amp ZNE, exp fit (G=1,2,3)             0.00053   0.00055   -0.00053   0.00053   0.00067
+    u-amp ZNE, linear (model 30% high)       0.00162   0.00174   +0.00162   0.00162   0.00163
+    ZNE raw, exp fit (G=1,2,3)               0.00007   0.00010   -0.00007   0.00007   0.00033
+    ZNE on ED, exp fit (G=1,2,3)             0.00184   0.00189   +0.00184   0.00184   0.00214
+
+### flag d=4 p=0.004 | ancilla checks only | 1 instance(s)
+    Lam=0.340  coverage=0.561  alpha=0.829  r_cov=0.783  r1(X_i) mean=0.974 [0.95,0.99]  r_train(pooled)=1.133
+    |ideal <X_i>| mean=0.493
+    cost (N x Var, central site): PEC full=3.9  PEC 1st order + ED=2.2  ED=0.9  ext two-point=1.4  u-amp linear=8.5  u-amp exp fit=7.5  ZNE raw exp fit=7.4  ZNE on ED exp fit=8.4
+    estimator                                X_i rms   X_i max   m_x mean   m_x rms    XX rms
+    raw                                      0.03807   0.03970   -0.03805   0.03805   0.09181
+    ED                                       0.01936   0.02038   -0.01935   0.01935   0.05021
+    ext, coverage ratio                      0.00472   0.00526   -0.00471   0.00471   0.01765
+    ext, r = 1                               0.00072   0.00107   -0.00065   0.00065   0.00862
+    ext, oracle 1st-order ratio              0.00114   0.00125   -0.00114   0.00114   0.00655
+    ext(exp form), oracle ratio              0.00041   0.00044   -0.00040   0.00040   0.00236
+    ext, oracle ratio + pair term            0.00050   0.00058   -0.00045   0.00045   0.00517
+    ext, ratio from Clifford training        0.00184   0.00223   +0.00181   0.00181   0.02218
+    ext, site-pooled training ratio          0.00187   0.00233   +0.00184   0.00184   0.00329
+    CDR on raw (pooled slope)                0.02950   0.03128   +0.02947   0.02947   0.02307
+    CDR on ED (pooled slope)                 0.01560   0.01648   +0.01559   0.01559   0.00941
+    PEC 1st order (exact model)              0.00060   0.00062   -0.00060   0.00060   0.00136
+    PEC 1st order (model 30% high)           0.00497   0.00528   +0.00497   0.00497   0.01420
+    u-amp ZNE, linear (G=1,2)                0.00045   0.00059   -0.00044   0.00044   0.00568
+    u-amp ZNE, exp fit (G=1,2,3)             0.00091   0.00104   +0.00091   0.00091   0.00108
+    u-amp ZNE, linear (model 30% high)       0.00524   0.00541   +0.00524   0.00524   0.00690
+    ZNE raw, exp fit (G=1,2,3)               0.00504   0.00537   +0.00502   0.00502   0.00168
+    ZNE on ED, exp fit (G=1,2,3)             0.00377   0.00398   +0.00377   0.00377   0.00485
+
+### flag d=4 p=0.004 | ancilla checks + parity | 1 instance(s)
+    Lam=0.340  coverage=0.812  alpha=0.763  r_cov=0.232  r1(X_i) mean=0.310 [0.29,0.33]  r_train(pooled)=0.344
+    |ideal <X_i>| mean=0.493
+    cost (N x Var, central site): PEC full=3.9  PEC 1st order + ED=1.7  ED=1.0  ext two-point=1.2  u-amp linear=9.1  u-amp exp fit=7.4  ZNE raw exp fit=7.4  ZNE on ED exp fit=8.9
+    estimator                                X_i rms   X_i max   m_x mean   m_x rms    XX rms
+    raw                                      0.03807   0.03970   -0.03805   0.03805   0.09181
+    ED                                       0.01021   0.01042   -0.01020   0.01020   0.01803
+    ext, coverage ratio                      0.00376   0.00421   -0.00375   0.00375   0.00114
+    ext, r = 1                               0.01767   0.01904   +0.01765   0.01765   0.05577
+    ext, oracle 1st-order ratio              0.00158   0.00170   -0.00158   0.00158   0.00420
+    ext(exp form), oracle ratio              0.00124   0.00134   -0.00124   0.00124   0.00289
+    ext, oracle ratio + pair term            0.00045   0.00049   -0.00042   0.00042   0.00153
+    ext, ratio from Clifford training        0.00080   0.00115   -0.00060   0.00060   0.00884
+    ext, site-pooled training ratio          0.00071   0.00123   -0.00063   0.00063   0.00377
+    CDR on raw (pooled slope)                0.02950   0.03128   +0.02947   0.02947   0.02307
+    CDR on ED (pooled slope)                 0.00644   0.00683   +0.00643   0.00643   0.00718
+    PEC 1st order (exact model)              0.00136   0.00141   -0.00136   0.00136   0.00251
+    PEC 1st order (model 30% high)           0.00132   0.00144   +0.00132   0.00132   0.00224
+    u-amp ZNE, linear (G=1,2)                0.00147   0.00153   -0.00147   0.00147   0.00292
+    u-amp ZNE, exp fit (G=1,2,3)             0.00127   0.00133   -0.00127   0.00127   0.00244
+    u-amp ZNE, linear (model 30% high)       0.00114   0.00122   +0.00113   0.00113   0.00154
+    ZNE raw, exp fit (G=1,2,3)               0.00504   0.00537   +0.00502   0.00502   0.00168
+    ZNE on ED, exp fit (G=1,2,3)             0.00517   0.00535   +0.00517   0.00517   0.00927
+
+### flag d=6 p=0.004 | ancilla checks only | 1 instance(s)
+    Lam=0.500  coverage=0.552  alpha=0.765  r_cov=0.811  r1(X_i) mean=0.989 [0.98,0.99]  r_train(pooled)=1.223
+    |ideal <X_i>| mean=0.836
+    cost (N x Var, central site): PEC full=7.4  PEC 1st order + ED=3.2  ED=0.6  ext two-point=1.1  u-amp linear=5.7  u-amp exp fit=6.5  ZNE raw exp fit=9.0  ZNE on ED exp fit=8.7
+    estimator                                X_i rms   X_i max   m_x mean   m_x rms    XX rms
+    raw                                      0.16798   0.17021   -0.16797   0.16797   0.21080
+    ED                                       0.09219   0.09347   -0.09219   0.09219   0.11614
+    ext, coverage ratio                      0.03071   0.03120   -0.03070   0.03070   0.03934
+    ext, r = 1                               0.01642   0.01682   -0.01641   0.01641   0.02149
+    ext, oracle 1st-order ratio              0.01725   0.01756   -0.01725   0.01725   0.02550
+    ext(exp form), oracle ratio              0.00879   0.00886   -0.00879   0.00879   0.00951
+    ext, oracle ratio + pair term            0.01321   0.01348   -0.01316   0.01316   0.02084
+    ext, ratio from Clifford training        0.00150   0.00184   +0.00051   0.00051   0.05249
+    ext, site-pooled training ratio          0.00068   0.00137   +0.00048   0.00048   0.00042
+    CDR on raw (pooled slope)                0.02433   0.02695   +0.02422   0.02422   0.01184
+    CDR on ED (pooled slope)                 0.01289   0.01447   +0.01284   0.01284   0.00641
+    PEC 1st order (exact model)              0.00372   0.00377   -0.00372   0.00372   0.00454
+    PEC 1st order (model 30% high)           0.02511   0.02547   +0.02510   0.02510   0.03279
+    u-amp ZNE, linear (G=1,2)                0.01422   0.01451   -0.01422   0.01422   0.02186
+    u-amp ZNE, exp fit (G=1,2,3)             0.00594   0.00601   -0.00595   0.00595   0.00515
+    u-amp ZNE, linear (model 30% high)       0.00734   0.00746   +0.00733   0.00733   0.00347
+    ZNE raw, exp fit (G=1,2,3)               0.00866   0.00887   -0.00867   0.00867   0.00347
+    ZNE on ED, exp fit (G=1,2,3)             0.00957   0.00980   +0.00956   0.00956   0.01444
+
+### flag d=6 p=0.004 | ancilla checks + parity | 1 instance(s)
+    Lam=0.500  coverage=0.808  alpha=0.676  r_cov=0.238  r1(X_i) mean=0.209 [0.20,0.21]  r_train(pooled)=0.300
+    |ideal <X_i>| mean=0.836
+    cost (N x Var, central site): PEC full=7.4  PEC 1st order + ED=2.2  ED=0.5  ext two-point=0.6  u-amp linear=5.1  u-amp exp fit=4.5  ZNE raw exp fit=9.0  ZNE on ED exp fit=7.2
+    estimator                                X_i rms   X_i max   m_x mean   m_x rms    XX rms
+    raw                                      0.16798   0.17021   -0.16797   0.16797   0.21080
+    ED                                       0.03916   0.04032   -0.03915   0.03915   0.04654
+    ext, coverage ratio                      0.00858   0.00947   -0.00855   0.00855   0.00759
+    ext, r = 1                               0.08966   0.09113   +0.08966   0.08966   0.11774
+    ext, oracle 1st-order ratio              0.01220   0.01246   -0.01220   0.01220   0.01534
+    ext(exp form), oracle ratio              0.00920   0.00931   -0.00920   0.00920   0.00995
+    ext, oracle ratio + pair term            0.00359   0.00382   -0.00355   0.00355   0.00619
+    ext, ratio from Clifford training        0.00540   0.00921   -0.00176   0.00176   0.02346
+    ext, site-pooled training ratio          0.00080   0.00132   -0.00048   0.00048   0.00855
+    CDR on raw (pooled slope)                0.02433   0.02695   +0.02422   0.02422   0.01184
+    CDR on ED (pooled slope)                 0.00776   0.00896   +0.00772   0.00772   0.00901
+    PEC 1st order (exact model)              0.00715   0.00722   -0.00715   0.00715   0.00824
+    PEC 1st order (model 30% high)           0.00272   0.00300   +0.00272   0.00272   0.00368
+    u-amp ZNE, linear (G=1,2)                0.00843   0.00859   -0.00843   0.00843   0.01032
+    u-amp ZNE, exp fit (G=1,2,3)             0.00723   0.00730   -0.00723   0.00723   0.00835
+    u-amp ZNE, linear (model 30% high)       0.00056   0.00068   +0.00055   0.00055   0.00020
+    ZNE raw, exp fit (G=1,2,3)               0.00866   0.00887   -0.00867   0.00867   0.00347
+    ZNE on ED, exp fit (G=1,2,3)             0.02654   0.02680   +0.02653   0.02653   0.03094
+
+### flag d=2 p=0.012 | ancilla checks only | 1 instance(s)
+    Lam=0.541  coverage=0.586  alpha=0.736  r_cov=0.707  r1(X_i) mean=1.000 [1.00,1.00]  r_train(pooled)=1.186
+    |ideal <X_i>| mean=0.640
+    cost (N x Var, central site): PEC full=8.7  PEC 1st order + ED=3.3  ED=0.9  ext two-point=1.7  u-amp linear=8.3  u-amp exp fit=8.5  ZNE raw exp fit=9.3  ZNE on ED exp fit=11.2
+    estimator                                X_i rms   X_i max   m_x mean   m_x rms    XX rms
+    raw                                      0.10491   0.10935   -0.10488   0.10488   0.14047
+    ED                                       0.05716   0.05970   -0.05714   0.05714   0.07805
+    ext, coverage ratio                      0.02338   0.02459   -0.02337   0.02337   0.03390
+    ext, r = 1                               0.00940   0.01006   -0.00939   0.00939   0.01563
+    ext, oracle 1st-order ratio              0.00940   0.01005   -0.00939   0.00939   0.01685
+    ext(exp form), oracle ratio              0.00513   0.00541   -0.00513   0.00513   0.00716
+    ext, oracle ratio + pair term            0.00670   0.00720   -0.00629   0.00629   0.01336
+    ext, ratio from Clifford training        0.00074   0.00140   -0.00031   0.00031   0.00090
+    ext, site-pooled training ratio          0.00052   0.00080   -0.00049   0.00049   0.00071
+    CDR on raw (pooled slope)                0.00967   0.01434   -0.00907   0.00907   0.01950
+    CDR on ED (pooled slope)                 0.00509   0.00758   -0.00478   0.00478   0.00958
+    PEC 1st order (exact model)              0.00253   0.00265   -0.00253   0.00253   0.00340
+    PEC 1st order (model 30% high)           0.01485   0.01556   +0.01484   0.01484   0.02138
+    u-amp ZNE, linear (G=1,2)                0.00729   0.00787   -0.00728   0.00728   0.01424
+    u-amp ZNE, exp fit (G=1,2,3)             0.00268   0.00288   -0.00268   0.00268   0.00400
+    u-amp ZNE, linear (model 30% high)       0.00681   0.00686   +0.00681   0.00681   0.00306
+    ZNE raw, exp fit (G=1,2,3)               0.00059   0.00090   -0.00059   0.00059   0.00283
+    ZNE on ED, exp fit (G=1,2,3)             0.00822   0.00850   +0.00820   0.00820   0.01049
+
+### flag d=2 p=0.012 | ancilla checks + parity | 1 instance(s)
+    Lam=0.541  coverage=0.822  alpha=0.650  r_cov=0.216  r1(X_i) mean=0.251 [0.23,0.27]  r_train(pooled)=0.321
+    |ideal <X_i>| mean=0.640
+    cost (N x Var, central site): PEC full=8.7  PEC 1st order + ED=2.3  ED=1.0  ext two-point=1.2  u-amp linear=8.8  u-amp exp fit=7.7  ZNE raw exp fit=9.3  ZNE on ED exp fit=11.5
+    estimator                                X_i rms   X_i max   m_x mean   m_x rms    XX rms
+    raw                                      0.10491   0.10935   -0.10488   0.10488   0.14047
+    ED                                       0.02726   0.02869   -0.02724   0.02724   0.02993
+    ext, coverage ratio                      0.01055   0.01199   -0.01048   0.01048   0.00633
+    ext, r = 1                               0.05048   0.05290   +0.05040   0.05040   0.08075
+    ext, oracle 1st-order ratio              0.00779   0.00820   -0.00779   0.00779   0.00991
+    ext(exp form), oracle ratio              0.00608   0.00631   -0.00608   0.00608   0.00680
+    ext, oracle ratio + pair term            0.00226   0.00245   -0.00200   0.00200   0.00336
+    ext, ratio from Clifford training        0.00312   0.00532   -0.00149   0.00149   0.00667
+    ext, site-pooled training ratio          0.00268   0.00393   -0.00229   0.00229   0.00601
+    CDR on raw (pooled slope)                0.00967   0.01434   -0.00907   0.00907   0.01950
+    CDR on ED (pooled slope)                 0.00407   0.00539   -0.00388   0.00388   0.00812
+    PEC 1st order (exact model)              0.00486   0.00502   -0.00486   0.00486   0.00577
+    PEC 1st order (model 30% high)           0.00206   0.00249   +0.00202   0.00202   0.00182
+    u-amp ZNE, linear (G=1,2)                0.00570   0.00596   -0.00570   0.00570   0.00711
+    u-amp ZNE, exp fit (G=1,2,3)             0.00494   0.00513   -0.00494   0.00494   0.00617
+    u-amp ZNE, linear (model 30% high)       0.00066   0.00090   +0.00061   0.00061   0.00053
+    ZNE raw, exp fit (G=1,2,3)               0.00059   0.00090   -0.00059   0.00059   0.00283
+    ZNE on ED, exp fit (G=1,2,3)             0.01858   0.01915   +0.01857   0.01857   0.02193
+
+### flag d=4 p=0.012 | ancilla checks only | 1 instance(s)
+    Lam=1.021  coverage=0.561  alpha=0.583  r_cov=0.782  r1(X_i) mean=0.974 [0.95,0.99]  r_train(pooled)=1.453
+    |ideal <X_i>| mean=0.493
+    cost (N x Var, central site): PEC full=59.3  PEC 1st order + ED=10.3  ED=1.4  ext two-point=3.1  u-amp linear=12.8  u-amp exp fit=15.5  ZNE raw exp fit=17.9  ZNE on ED exp fit=29.2
+    estimator                                X_i rms   X_i max   m_x mean   m_x rms    XX rms
+    raw                                      0.11273   0.11648   -0.11269   0.11269   0.23270
+    ED                                       0.06179   0.06449   -0.06177   0.06177   0.14341
+    ext, coverage ratio                      0.02196   0.02382   -0.02193   0.02193   0.07356
+    ext, r = 1                               0.01089   0.01250   -0.01084   0.01084   0.05411
+    ext, oracle 1st-order ratio              0.01220   0.01298   -0.01218   0.01218   0.04967
+    ext(exp form), oracle ratio              0.00566   0.00591   -0.00564   0.00564   0.02130
+    ext, oracle ratio + pair term            0.00582   0.00643   -0.00546   0.00546   0.03776
+    ext, ratio from Clifford training        0.01215   0.01438   +0.01190   0.01190   0.06246
+    ext, site-pooled training ratio          0.01226   0.01371   +0.01221   0.01221   0.00274
+    CDR on raw (pooled slope)                0.08107   0.08652   +0.08093   0.08093   0.06164
+    CDR on ED (pooled slope)                 0.04615   0.04903   +0.04609   0.04609   0.02713
+    PEC 1st order (exact model)              0.00538   0.00551   -0.00538   0.00538   0.01207
+    PEC 1st order (model 30% high)           0.01121   0.01209   +0.01120   0.01120   0.03498
+    u-amp ZNE, linear (G=1,2)                0.00675   0.00784   -0.00672   0.00672   0.04421
+    u-amp ZNE, exp fit (G=1,2,3)             0.00468   0.00542   +0.00462   0.00462   0.01000
+    u-amp ZNE, linear (model 30% high)       0.00915   0.00974   +0.00913   0.00913   0.01957
+    ZNE raw, exp fit (G=1,2,3)               0.02821   0.02984   +0.02810   0.02810   0.01090
+    ZNE on ED, exp fit (G=1,2,3)             0.03351   0.03518   +0.03347   0.03347   0.04395
+
+### flag d=4 p=0.012 | ancilla checks + parity | 1 instance(s)
+    Lam=1.021  coverage=0.812  alpha=0.460  r_cov=0.232  r1(X_i) mean=0.310 [0.29,0.33]  r_train(pooled)=0.525
+    |ideal <X_i>| mean=0.493
+    cost (N x Var, central site): PEC full=59.3  PEC 1st order + ED=4.7  ED=1.7  ext two-point=2.4  u-amp linear=15.6  u-amp exp fit=14.4  ZNE raw exp fit=17.9  ZNE on ED exp fit=40.5
+    estimator                                X_i rms   X_i max   m_x mean   m_x rms    XX rms
+    raw                                      0.11273   0.11648   -0.11269   0.11269   0.23270
+    ED                                       0.03856   0.03938   -0.03855   0.03855   0.06695
+    ext, coverage ratio                      0.02138   0.02233   -0.02138   0.02138   0.02858
+    ext, r = 1                               0.03564   0.03809   +0.03558   0.03558   0.09888
+    ext, oracle 1st-order ratio              0.01561   0.01648   -0.01560   0.01560   0.03585
+    ext(exp form), oracle ratio              0.01280   0.01361   -0.01280   0.01280   0.02699
+    ext, oracle ratio + pair term            0.00278   0.00295   -0.00250   0.00250   0.00847
+    ext, ratio from Clifford training        0.00148   0.00213   +0.00038   0.00038   0.03163
+    ext, site-pooled training ratio          0.00106   0.00156   +0.00035   0.00035   0.01220
+    CDR on raw (pooled slope)                0.08107   0.08652   +0.08093   0.08093   0.06164
+    CDR on ED (pooled slope)                 0.02165   0.02309   +0.02164   0.02164   0.02160
+    PEC 1st order (exact model)              0.01280   0.01330   -0.01279   0.01279   0.02335
+    PEC 1st order (model 30% high)           0.00489   0.00533   -0.00487   0.00487   0.00958
+    u-amp ZNE, linear (G=1,2)                0.01379   0.01434   -0.01379   0.01379   0.02680
+    u-amp ZNE, exp fit (G=1,2,3)             0.01210   0.01266   -0.01209   0.01209   0.02287
+    u-amp ZNE, linear (model 30% high)       0.00656   0.00709   -0.00655   0.00655   0.01540
+    ZNE raw, exp fit (G=1,2,3)               0.02821   0.02984   +0.02810   0.02810   0.01090
+    ZNE on ED, exp fit (G=1,2,3)             0.05392   0.05565   +0.05388   0.05388   0.09892
+
+### flag d=6 p=0.012 | ancilla checks only | 1 instance(s)
+    Lam=1.501  coverage=0.552  alpha=0.467  r_cov=0.811  r1(X_i) mean=0.989 [0.98,0.99]  r_train(pooled)=1.874
+    |ideal <X_i>| mean=0.836
+    cost (N x Var, central site): PEC full=404.6  PEC 1st order + ED=31.4  ED=1.4  ext two-point=3.8  u-amp linear=13.8  u-amp exp fit=33.2  ZNE raw exp fit=63.2  ZNE on ED exp fit=153.3
+    estimator                                X_i rms   X_i max   m_x mean   m_x rms    XX rms
+    raw                                      0.40127   0.40577   -0.40125   0.40125   0.46607
+    ED                                       0.25917   0.26240   -0.25916   0.25916   0.31140
+    ext, coverage ratio                      0.14395   0.14615   -0.14393   0.14393   0.18599
+    ext, r = 1                               0.11707   0.11903   -0.11706   0.11706   0.15673
+    ext, oracle 1st-order ratio              0.11861   0.12057   -0.11860   0.11860   0.16324
+    ext(exp form), oracle ratio              0.07289   0.07356   -0.07290   0.07290   0.08039
+    ext, oracle ratio + pair term            0.08541   0.08708   -0.08501   0.08501   0.12736
+    ext, ratio from Clifford training        0.01362   0.01810   +0.00833   0.00833   0.13952
+    ext, site-pooled training ratio          0.00733   0.00997   +0.00719   0.00719   0.00470
+    CDR on raw (pooled slope)                0.05792   0.06642   +0.05746   0.05746   0.02180
+    CDR on ED (pooled slope)                 0.03487   0.03956   +0.03466   0.03466   0.01508
+    PEC 1st order (exact model)              0.03273   0.03316   -0.03273   0.03273   0.03973
+    PEC 1st order (model 30% high)           0.05375   0.05456   +0.05375   0.05375   0.07243
+    u-amp ZNE, linear (G=1,2)                0.10202   0.10391   -0.10201   0.10201   0.14702
+    u-amp ZNE, exp fit (G=1,2,3)             0.04875   0.04921   -0.04877   0.04877   0.04463
+    u-amp ZNE, linear (model 30% high)       0.06468   0.06635   -0.06467   0.06467   0.11169
+    ZNE raw, exp fit (G=1,2,3)               0.05289   0.05366   -0.05298   0.05298   0.02527
+    ZNE on ED, exp fit (G=1,2,3)             0.07668   0.07863   +0.07662   0.07662   0.12775
+
+### flag d=6 p=0.012 | ancilla checks + parity | 1 instance(s)
+    Lam=1.501  coverage=0.808  alpha=0.335  r_cov=0.237  r1(X_i) mean=0.209 [0.20,0.21]  r_train(pooled)=0.611
+    |ideal <X_i>| mean=0.836
+    cost (N x Var, central site): PEC full=404.6  PEC 1st order + ED=9.4  ED=1.6  ext two-point=2.1  u-amp linear=15.2  u-amp exp fit=17.5  ZNE raw exp fit=63.2  ZNE on ED exp fit=253.0
+    estimator                                X_i rms   X_i max   m_x mean   m_x rms    XX rms
+    raw                                      0.40127   0.40577   -0.40125   0.40125   0.46607
+    ED                                       0.15151   0.15481   -0.15149   0.15149   0.17400
+    ext, coverage ratio                      0.09220   0.09522   -0.09218   0.09218   0.10465
+    ext, r = 1                               0.09829   0.10094   +0.09827   0.09827   0.11818
+    ext, oracle 1st-order ratio              0.09922   0.10096   -0.09921   0.09921   0.11850
+    ext(exp form), oracle ratio              0.08324   0.08420   -0.08324   0.08324   0.08987
+    ext, oracle ratio + pair term            0.01037   0.01183   -0.00993   0.00993   0.02654
+    ext, ratio from Clifford training        0.01361   0.02126   -0.00260   0.00260   0.08013
+    ext, site-pooled training ratio          0.00224   0.00403   +0.00120   0.00120   0.02422
+    CDR on raw (pooled slope)                0.05792   0.06642   +0.05746   0.05746   0.02180
+    CDR on ED (pooled slope)                 0.02659   0.03033   +0.02644   0.02644   0.02470
+    PEC 1st order (exact model)              0.06603   0.06664   -0.06603   0.06603   0.07536
+    PEC 1st order (model 30% high)           0.03828   0.03915   -0.03828   0.03828   0.04242
+    u-amp ZNE, linear (G=1,2)                0.07585   0.07707   -0.07584   0.07584   0.09052
+    u-amp ZNE, exp fit (G=1,2,3)             0.06669   0.06735   -0.06670   0.06670   0.07628
+    u-amp ZNE, linear (model 30% high)       0.05489   0.05560   -0.05488   0.05488   0.06806
+    ZNE raw, exp fit (G=1,2,3)               0.05289   0.05366   -0.05298   0.05298   0.02527
+    ZNE on ED, exp fit (G=1,2,3)             0.24724   0.25062   +0.24717   0.24717   0.32787
+
+### generic p=0.004 | ancilla checks only | 16 instance(s)
+    Lam=0.340  coverage=0.562  alpha=0.829  r_cov=0.743  r1(X_i) mean=0.973 [-10.08,13.34]  r_train(pooled)=1.132
+    |ideal <X_i>| mean=0.658
+    cost (N x Var, central site): PEC full=3.9  PEC 1st order + ED=2.2  ED=0.5  ext two-point=0.9  u-amp linear=4.8  u-amp exp fit=5.0  ZNE raw exp fit=5.9  ZNE on ED exp fit=5.9
+    estimator                                X_i rms   X_i max   m_x mean   m_x rms    XX rms
+    raw                                      0.10338   0.16004   -0.08878   0.10335   0.13351
+    ED                                       0.05507   0.08664   -0.04712   0.05503   0.07041
+    ext, coverage ratio                      0.01737   0.03282   -0.01440   0.01718   0.02090
+    ext, r = 1                               0.00809   0.02198   -0.00547   0.00759   0.00891
+    ext, oracle 1st-order ratio              0.00778   0.01709   -0.00345   0.01226   0.01064
+    ext(exp form), oracle ratio              0.00439   0.01846   +0.00022   0.01193   0.00371
+    ext, oracle ratio + pair term            0.00635   0.01711   -0.00201   0.01136   0.00876
+    ext, ratio from Clifford training        0.00729   0.04947   +0.00057   0.00278   0.02693
+    ext, site-pooled training ratio          0.00381   0.00951   +0.00047   0.00243   0.00397
+    CDR on raw (pooled slope)                0.03137   0.07542   +0.00839   0.03121   0.02448
+    CDR on ED (pooled slope)                 0.01653   0.04047   +0.00459   0.01636   0.01163
+    PEC 1st order (exact model)              0.00143   0.00219   -0.00123   0.00143   0.00181
+    PEC 1st order (model 30% high)           0.01565   0.02547   +0.01328   0.01563   0.02031
+    u-amp ZNE, linear (G=1,2)                0.00609   0.01063   -0.00480   0.00608   0.00903
+    u-amp ZNE, exp fit (G=1,2,3)             0.00256   0.00442   -0.00146   0.00256   0.00199
+    u-amp ZNE, linear (model 30% high)       0.00799   0.01079   +0.00725   0.00799   0.00821
+    ZNE raw, exp fit (G=1,2,3)               0.00530   0.01289   -0.00137   0.00529   0.00147
+    ZNE on ED, exp fit (G=1,2,3)             0.00399   0.00554   +0.00381   0.00397   0.00583
+
+### generic p=0.004 | ancilla checks + parity | 16 instance(s)
+    Lam=0.340  coverage=0.813  alpha=0.763  r_cov=0.218  r1(X_i) mean=0.383 [-3.44,20.71]  r_train(pooled)=0.288
+    |ideal <X_i>| mean=0.658
+    cost (N x Var, central site): PEC full=3.9  PEC 1st order + ED=1.7  ED=0.5  ext two-point=0.5  u-amp linear=4.4  u-amp exp fit=3.7  ZNE raw exp fit=5.9  ZNE on ED exp fit=4.7
+    estimator                                X_i rms   X_i max   m_x mean   m_x rms    XX rms
+    raw                                      0.10338   0.16004   -0.08878   0.10335   0.13351
+    ED                                       0.02123   0.03334   -0.01896   0.02119   0.02616
+    ext, coverage ratio                      0.00361   0.00640   -0.00306   0.00331   0.00464
+    ext, r = 1                               0.06138   0.10093   +0.05086   0.06132   0.08178
+    ext, oracle 1st-order ratio              0.00608   0.03178   -0.00437   0.00490   0.00625
+    ext(exp form), oracle ratio              0.00545   0.03608   -0.00325   0.00363   0.00395
+    ext, oracle ratio + pair term            0.00403   0.03175   -0.00160   0.00175   0.00268
+    ext, ratio from Clifford training        0.00670   0.02515   +0.00084   0.00405   0.01299
+    ext, site-pooled training ratio          0.00464   0.01245   +0.00128   0.00439   0.00605
+    CDR on raw (pooled slope)                0.03137   0.07542   +0.00839   0.03121   0.02448
+    CDR on ED (pooled slope)                 0.00627   0.01845   +0.00351   0.00613   0.00935
+    PEC 1st order (exact model)              0.00282   0.00452   -0.00247   0.00282   0.00331
+    PEC 1st order (model 30% high)           0.00287   0.00536   +0.00256   0.00284   0.00383
+    u-amp ZNE, linear (G=1,2)                0.00333   0.00520   -0.00292   0.00332   0.00417
+    u-amp ZNE, exp fit (G=1,2,3)             0.00286   0.00460   -0.00250   0.00286   0.00340
+    u-amp ZNE, linear (model 30% high)       0.00200   0.00368   +0.00181   0.00198   0.00232
+    ZNE raw, exp fit (G=1,2,3)               0.00530   0.01289   -0.00137   0.00529   0.00147
+    ZNE on ED, exp fit (G=1,2,3)             0.01017   0.01618   +0.00896   0.01017   0.01199
+
+### generic p=0.012 | ancilla checks only | 16 instance(s)
+    Lam=1.021  coverage=0.562  alpha=0.582  r_cov=0.742  r1(X_i) mean=0.963 [-10.53,12.95]  r_train(pooled)=1.496
+    |ideal <X_i>| mean=0.658
+    cost (N x Var, central site): PEC full=59.3  PEC 1st order + ED=10.2  ED=1.0  ext two-point=2.6  u-amp linear=9.9  u-amp exp fit=16.3  ZNE raw exp fit=25.4  ZNE on ED exp fit=37.8
+    estimator                                X_i rms   X_i max   m_x mean   m_x rms    XX rms
+    raw                                      0.26274   0.39432   -0.22887   0.26266   0.32448
+    ED                                       0.15771   0.24164   -0.13620   0.15761   0.19703
+    ext, coverage ratio                      0.07577   0.12998   -0.06350   0.07548   0.09690
+    ext, r = 1                               0.05397   0.10737   -0.04354   0.05350   0.07035
+    ext, oracle 1st-order ratio              0.05672   0.10486   -0.03186   0.07446   0.07626
+    ext(exp form), oracle ratio              0.03659   0.17335   +0.00829   0.13092   0.03248
+    ext, oracle ratio + pair term            0.04446   0.10628   -0.01919   0.06541   0.06061
+    ext, ratio from Clifford training        0.02338   0.13996   +0.00377   0.01482   0.07460
+    ext, site-pooled training ratio          0.01560   0.04239   +0.00312   0.01312   0.01160
+    CDR on raw (pooled slope)                0.08584   0.20846   +0.02042   0.08528   0.07438
+    CDR on ED (pooled slope)                 0.04945   0.12260   +0.01291   0.04894   0.03692
+    PEC 1st order (exact model)              0.01273   0.01950   -0.01098   0.01272   0.01608
+    PEC 1st order (model 30% high)           0.03905   0.06689   +0.03292   0.03899   0.05115
+    u-amp ZNE, linear (G=1,2)                0.04641   0.07891   -0.03745   0.04635   0.06708
+    u-amp ZNE, exp fit (G=1,2,3)             0.02088   0.03558   -0.01412   0.02095   0.01769
+    u-amp ZNE, linear (model 30% high)       0.01984   0.03899   -0.01203   0.01976   0.03614
+    ZNE raw, exp fit (G=1,2,3)               0.03455   0.06402   -0.01459   0.03459   0.01215
+    ZNE on ED, exp fit (G=1,2,3)             0.03224   0.04685   +0.03084   0.03208   0.05158
+
+### generic p=0.012 | ancilla checks + parity | 16 instance(s)
+    Lam=1.021  coverage=0.813  alpha=0.460  r_cov=0.218  r1(X_i) mean=0.368 [-3.46,19.57]  r_train(pooled)=0.462
+    |ideal <X_i>| mean=0.658
+    cost (N x Var, central site): PEC full=59.3  PEC 1st order + ED=4.7  ED=1.0  ext two-point=1.3  u-amp linear=9.3  u-amp exp fit=9.9  ZNE raw exp fit=25.4  ZNE on ED exp fit=41.4
+    estimator                                X_i rms   X_i max   m_x mean   m_x rms    XX rms
+    raw                                      0.26274   0.39432   -0.22887   0.26266   0.32448
+    ED                                       0.07801   0.11894   -0.06960   0.07793   0.09372
+    ext, coverage ratio                      0.03655   0.05992   -0.03329   0.03634   0.04239
+    ext, r = 1                               0.10782   0.17232   +0.08967   0.10762   0.13906
+    ext, oracle 1st-order ratio              0.04683   0.19337   -0.03697   0.04139   0.05123
+    ext(exp form), oracle ratio              0.06131   0.46060   -0.02966   0.03314   0.03643
+    ext, oracle ratio + pair term            0.02436   0.19521   -0.00832   0.00949   0.01547
+    ext, ratio from Clifford training        0.01944   0.08719   +0.00304   0.01105   0.04516
+    ext, site-pooled training ratio          0.01291   0.03464   +0.00442   0.01212   0.01981
+    CDR on raw (pooled slope)                0.08584   0.20846   +0.02042   0.08528   0.07438
+    CDR on ED (pooled slope)                 0.02130   0.06138   +0.01112   0.02091   0.02989
+    PEC 1st order (exact model)              0.02624   0.04172   -0.02304   0.02623   0.03075
+    PEC 1st order (model 30% high)           0.01023   0.02170   -0.00831   0.01013   0.01121
+    u-amp ZNE, linear (G=1,2)                0.03037   0.04728   -0.02669   0.03036   0.03755
+    u-amp ZNE, exp fit (G=1,2,3)             0.02658   0.04242   -0.02326   0.02660   0.03153
+    u-amp ZNE, linear (model 30% high)       0.01694   0.02949   -0.01448   0.01692   0.02199
+    ZNE raw, exp fit (G=1,2,3)               0.03455   0.06402   -0.01459   0.03459   0.01215
+    ZNE on ED, exp fit (G=1,2,3)             0.10119   0.15841   +0.08979   0.10107   0.12609
