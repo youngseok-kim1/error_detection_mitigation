@@ -141,7 +141,7 @@ At equal shot budget, counted as shots executed before any post-selection, does 
   - (iv) the geometric law $E[o\mid k]=O_0\bar\rho^{\,k}$ holds exactly from the detector error model.
 - Exit criterion: all four reproduced.
 
-**Stage 1: one block, two logical qubits, non-Clifford. Goal: the first real comparison.** Tool: exact density matrix, 4 data + 2 ancillas = 6 qubits, branched by detector pattern (the full $2^{2R+2}$ record is exact for $R\le4$).
+**Stage 1: one block, two logical qubits, non-Clifford. Goal: the first real comparison.** **Status: done, see `ED_stage1.md` (encoded loses to unencoded ZNE in this setting; the non-FT gadgets' undetected weight equals the unencoded noise budget).** Tool: exact density matrix, 4 data + 2 ancillas = 6 qubits, branched by detector pattern (the full $2^{2R+2}$ record is exact for $R\le4$).
 - **Logical circuit:** two-site MFIM on $(\bar 0,\bar1)$. $R_{ZZ}$ on $\bar Z_0\bar Z_1=Z_1Z_2$ by CX fan-in, $R_z$, uncompute. $\bar X_i$ and $\bar Z_i$ rotations as weight-2 fan-ins, with the frame bit for SWAP$(d_1,d_2)$ as in [R1]. Syndrome round every $R$ Trotter steps, ancillas without reset. The unencoded baseline is the same Trotter circuit on 2 physical qubits.
 - **Observables:** $\langle\bar Z_0\rangle$, $\langle\bar X_0\rangle$, $\langle\bar Z_0\bar Z_1\rangle$, so that the rotation-axis errors are sometimes harmless (Z-type observables) and sometimes harmful.
 - **Noise:** two-qubit depolarizing $p\in\{0.1,0.2,0.3,0.5\}\%$, single-qubit $p/10$, readout $q=p$, perfect reset; idle noise in a second pass.
